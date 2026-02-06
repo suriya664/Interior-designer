@@ -304,8 +304,8 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 
-/* Show mobile CTA, auth items, and dashboard in mobile/tablet views */
-@media (max-width: 1279px) {
+/* Show mobile CTA, auth items, and dashboard in mobile views only */
+@media (max-width: 767px) {
     .mobile-cta-item,
     .mobile-auth-item,
     .mobile-dashboard-item {
@@ -556,6 +556,7 @@ h1, h2, h3, h4, h5, h6 {
 .about {
     padding: 100px 0;
     background: var(--accent);
+    scroll-margin-top: 80px;
 }
 
 .about-wrapper {
@@ -567,6 +568,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 3rem;
     max-width: 1100px;
     margin: 0 auto;
+    min-height: 500px;
 }
 
 .about-image {
@@ -580,13 +582,13 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     padding: 10px;
     background: var(--white);
-    height: 100%;
+    min-height: 400px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .image-frame img {
     width: 100%;
-    height: 100%;
+    min-height: 380px;
     object-fit: cover;
     filter: grayscale(100%);
     transition: var(--transition);
@@ -1968,7 +1970,7 @@ h1, h2, h3, h4, h5, h6 {
     .mobile-menu-toggle span {
         width: 28px;
         height: 3px;
-        background: var(--white);
+        background: var(--primary);
         transition: var(--transition);
         display: block;
         border-radius: 2px;
@@ -2556,6 +2558,24 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateX(-50%);
     }
     
+    /* Show auth buttons in tablet view - override 1024px rule */
+    .nav-auth-buttons {
+        display: flex !important;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .nav-auth-btn {
+        padding: 6px 12px;
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Hide mobile CTA in tablet view */
+    .mobile-cta-item {
+        display: none !important;
+    }
+    
     .about-wrapper {
         flex-direction: column;
         align-items: center;
@@ -2847,6 +2867,40 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2.5rem;
     }
     
+    .about-wrapper {
+        text-align: center;
+    }
+    
+    .about-content {
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .about-content h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-intro,
+    .about-text {
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    
+    .about-stats {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .awards-grid {
+        justify-content: center;
+        text-align: center;
+    }
+    
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -2949,6 +3003,139 @@ h1, h2, h3, h4, h5, h6 {
     .section-title {
         font-size: 2rem;
     }
+    
+    /* About Me section fixes for 360px */
+    .about-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .about-image,
+    .about-content {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .about-content h2 {
+        font-size: 1.75rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .about-intro,
+    .about-text {
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    
+    .about-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .stat-item {
+        min-width: 200px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 0 auto;
+        max-width: 250px;
+    }
+}
+
+/* Extra Small Mobile (320px - 359px) */
+@media (max-width: 359px) {
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    /* About Me section fixes for 320px */
+    .about-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+        text-align: center;
+    }
+    
+    .about-image,
+    .about-content {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .about-content h2 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .about-intro,
+    .about-text {
+        font-size: 0.85rem;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    
+    .about-stats {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .stat-item {
+        min-width: 180px;
+        padding: 1.2rem 0.8rem;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin: 0 auto;
+        max-width: 200px;
+        text-align: center;
+    }
+    
+    .award-card {
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .award-card h4 {
+        font-size: 0.9rem;
+    }
+    
+    .award-card p {
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -3023,15 +3210,6 @@ h1, h2, h3, h4, h5, h6 {
         word-wrap: break-word;
         overflow-wrap: break-word;
         padding: 0 1rem;
-    }
-}
-    
-    .section-title {
-        font-size: 1.75rem;
-    }
-    
-    .container {
-        padding: 0 10px;
     }
 }
 
